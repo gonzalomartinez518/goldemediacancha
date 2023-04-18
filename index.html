@@ -37,30 +37,42 @@
             </div>
             <div class="row">
                 <select class="form-select boton-select col-sm-3 text-center me-2" id="cancha" aria-label="Default select example">
-                    <option selected>Cancha</option>
-                    <option>Futbol 5</option>
-                    <option>Futbol 7</option>
-                    <option>Futbol 9</option>
-                    <option>Futbol 11</option>
+                    <option selected disabled>Cancha</option>
                 </select>
                 <select class="form-select boton-select col-sm-3 text-center me-2" id="dia" aria-label="Default select example">
-                    <option selected>Día</option>
-                    <option>Hoy</option>
-                    <option>Mañana</option>
-                    <option>Pasado mañana</option>
+                    <option selected disabled>Día</option>
                 </select>
                 <select class="form-select boton-select col-sm-3 text-center me-2" id="horario" aria-label="Default select example">
-                    <option selected>Horario</option>
-                    <option>17:00</option>
-                    <option>18:00</option>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                    <option>21:00</option>
-                    <option>22:00</option>
-                    <option>23:00</option>
+                    <option selected disabled>Horario</option>
                 </select>
                 <button type="button" id="boton" class="btn btn-primary col-sm-3">Buscar</button>
             </div>
+        </div>
+
+        <div class="container heroSection__titulo">
+            <div>
+                <h2 class="mt-5">Mis Reservas</h2>
+                <p>Recuerda confirmar su método de pago para proceder con su reserva, pague online y obtenga un 10% de descuento!</p>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">Tipo de cancha</th>
+                        <th class="text-center" scope="col">Dia</th>
+                        <th class="text-center" scope="col">Horario</th>
+                        <th class="text-center" scope="col">Precio</th>
+                        <th class="text-center" scope="col">Pago</th>
+                        <th class="text-center" scope="col">Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaReserva">
+                </tbody>
+            </table>
+
+
+            <button type="button" id="cancelar" class="btn btn-primary col-sm-3">Cancelar Reservas</button>
         </div>
     </div>
 </body>
