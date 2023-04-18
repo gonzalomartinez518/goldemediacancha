@@ -25,26 +25,6 @@ function generarId() {
     return Math.floor(Math.random() * 10000);
 }  
 
-function reservarCancha() {
-    if (validarDatosCompletados() === true) {
-        const canchaSeleccionada = canchas.find(cancha => cancha.tipo === selectCancha.value);
-        const precioCancha = canchaSeleccionada.precio;
-        const nuevaReserva = new Reserva(generarId(), selectCancha.value, precioCancha, selectDia.value, selectHorario.value);
-        nuevaReserva.procesarReserva();
-    } else {
-        alert("Debe seleccionar cancha, día y horario para avanzar con la reserva")
-    }
-}
-
-botonBuscar.addEventListener("click", reservarCancha)
-
-botonCancelar.addEventListener("click", cancelarReserva);
-
-function cancelarReserva() {
-    localStorage.removeItem("carrito");
-    alert("Su reserva ha sido cancelada y su carrito se ha eliminado del almacenamiento local");
-}
-
 function crearCarrito(carrito) {
     return `<tr>
                 <td class="text-center" >${carrito.id}</td>
@@ -58,11 +38,41 @@ function crearCarrito(carrito) {
 }
 
 function cargarCarrito(reserva){
+    tablaReserva.innerHTML = "";
     reserva.forEach(element => {
         tablaReserva.innerHTML += crearCarrito(element)
     })
 }
 
+function reservarCancha() {
+    if (validarDatosCompletados() === true) {
+        const canchaSeleccionada = canchas.find(cancha => cancha.tipo === selectCancha.value);
+        const precioCancha = canchaSeleccionada.precio;
+        const nuevaReserva = new Reserva(generarId(), selectCancha.value, precioCancha, selectDia.value, selectHorario.value);
+        nuevaReserva.procesarReserva();
+        cargarCarrito(carrito)
+        localStorage.setItem('carrito', JSON.stringify(carrito));   
+    } else {
+        alert("Debe seleccionar cancha, día y horario para avanzar con la reserva")
+    }
+}
+
 cargarCarrito(carrito)
+
+botonBuscar.addEventListener("click", reservarCancha)
+
+botonCancelar.addEventListener("click", cancelarReserva);
+
+function cancelarReserva() {
+    localStorage.removeItem("carrito");
+    alert("Su reserva ha sido cancelada y su carrito se ha eliminado del almacenamiento local");
+    carrito.length = 0;
+    tablaReserva.innerHTML = ""
+    cargarCarrito(carrito)
+}
+
+
+
+
 
 

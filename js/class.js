@@ -11,8 +11,7 @@ class Reserva {
         if(confirmarReserva == true) {
             alert('Muchas gracias, por favor revise la sección "Mis Reservas" para gestionarla y decidir método de pago')
             const nuevaReserva = {id: this.id, tipo: this.cancha, precio: this.precio, dia: this.dia, horario: this.horario}
-            carrito.push(nuevaReserva)
-            localStorage.setItem('carrito', JSON.stringify(carrito));            
+            carrito.push(nuevaReserva)        
         } else {
             alert("Vuelva a reservar con nosotros cuando lo desee")
         }      
