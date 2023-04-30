@@ -3,6 +3,18 @@ const botonConfirmar = document.querySelector("#botonConfirmar")
 const botonCancelar = document.querySelector("#botonCancelar")
 
 function confirmarPago() {
+    const tarjetaNombre = document.querySelector("#tarjetaNombre").value;
+    const tarjetaNumero = document.querySelector("#tarjetaNumero").value;
+    const tarjetaVencimiento = document.querySelector("#tarjetaVencimiento").value;
+    const tarjetaCVV = document.querySelector("#tarjetaCVV").value;
+    if (tarjetaNombre.trim() === "" || tarjetaNumero.trim() === "" || tarjetaVencimiento.trim() === "" || tarjetaCVV.trim() === "") {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Por favor completa todos los campos de la tarjeta de crédito para continuar."
+        });
+        return;
+    }    
     let timerInterval
     Swal.fire({
         title: 'Estamos procesando tu pago',

@@ -1,3 +1,14 @@
+function obtenerCanchas() {
+    fetch(URL)
+    .then (response => response.json())
+    .then (data => {
+        canchas.push(...data);
+        crearOpcionesCancha(selectCancha, canchas)
+    })
+}
+
+obtenerCanchas()
+
 function crearOpcionesCancha(selectCancha, canchas) {
     if (canchas.length > 0) {
         canchas.forEach (cancha => {
@@ -146,7 +157,7 @@ function crearReservasConfirmadas(reservaConfirmada) {
 
 function cargarReservasConfirmadas(reserva){
     tablaReservasConfirmadas.innerHTML = "";
-    if (carrito.length > 0) {
+    if (reservaConfirmada.length > 0) {
         reserva.forEach(element => {
         tablaReservasConfirmadas.innerHTML += crearReservasConfirmadas(element)
     })
