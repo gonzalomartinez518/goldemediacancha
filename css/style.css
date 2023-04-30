@@ -6,6 +6,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
 a {
     text-decoration: none;
     color: #000000;
@@ -15,14 +16,19 @@ li {
     list-style: none;
 }
 
+body {
+    font-weight: 500;
+}
+
 
 .heroSection {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-image: url(../img/cancha-futbol-t.png);
     background-position: center;
     background-size: cover;
     background-repeat: repeat;
+    min-height: 100vh;
 }
 
 .heroSection__header {
@@ -32,7 +38,6 @@ li {
 
 .heroSection__header__menu {
     width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: end;
@@ -44,6 +49,17 @@ li {
     width: 20%;
 }
 
+.swal2-cancel {
+    margin-right: 30px;
+}
 
+.card {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    border-radius: 20 px;
+}
 
-
+p {
+    margin: 0px;
+}

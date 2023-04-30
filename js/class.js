@@ -7,13 +7,40 @@ class Reserva {
         this.horario = horario
     }
     procesarReserva() {
-        let confirmarReserva = confirm(`La cancha de ${this.cancha} está disponible, el precio de la reserva es de ${this.precio}. ¿Desea confirmar su reserva para ${this.dia} a las ${this.horario} horas?`);
-        if(confirmarReserva == true) {
-            alert('Muchas gracias, por favor revise la sección "Mis Reservas" para gestionarla y decidir método de pago')
-            const nuevaReserva = {id: this.id, tipo: this.cancha, precio: this.precio, dia: this.dia, horario: this.horario}
-            carrito.push(nuevaReserva)        
-        } else {
-            alert("Vuelva a reservar con nosotros cuando lo desee")
-        }      
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+        swalWithBootstrapButtons.fire({
+            text: `La cancha de ${this.cancha} está disponible, el precio de la reserva es de ${this.precio}. ¿Desea completar su reserva para ${this.dia} a las ${this.horario} horas?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Si completar',
+            cancelButtonText: 'No completar',
+            reverseButtons: true
+            }).then((result) => {
+            if (result.isConfirmed) {
+                const nuevaReserva = {id: this.id, tipo: this.cancha, precio: this.precio, dia: this.dia, horario: this.horario};
+                carrito.push(nuevaReserva); 
+                cargarCarrito(carrito)
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+                swalWithBootstrapButtons.fire(
+                'Su reserva fue completada!',
+                'Muchas gracias, por favor revise la sección "Mis Reservas" para gestionarla y decidir método de pago',
+                'success'
+                )
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                'Su reserva no fue completada!',
+                'Vuelva a reservar con nosotros cuando lo desee',
+                'error'
+            )
+            }
+        })
     }
 }

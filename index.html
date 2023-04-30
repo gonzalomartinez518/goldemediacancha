@@ -10,6 +10,8 @@
     <script defer src="./js/variables.js"></script>
     <script defer src="./js/class.js"></script>
     <script defer src="./js/funciones.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <div class="heroSection">
@@ -33,7 +35,7 @@
         <div class="container heroSection__titulo">
             <div>
                 <h1>Alquilá tu cancha en Cordoba</h1>
-                <p>¿Cansado de no encontrar cancha? ¡Buscala y reservala en tiempo real!</p>
+                <p class="mb-4">¿Cansado de no encontrar cancha? ¡Buscala y reservala en tiempo real!</p>
             </div>
             <div class="row">
                 <select class="form-select boton-select col-sm-3 text-center me-2" id="cancha" aria-label="Default select example">
@@ -48,13 +50,11 @@
                 <button type="button" id="boton" class="btn btn-primary col-sm-3">Buscar</button>
             </div>
         </div>
-
         <div class="container heroSection__titulo">
             <div>
-                <h2 class="mt-5">Mis Reservas</h2>
+                <h2 class="mt-5">Mis Reservas Pendientes</h2>
                 <p>Recuerda confirmar su método de pago para proceder con su reserva, pague online y obtenga un 10% de descuento!</p>
             </div>
-
             <table class="table">
                 <thead>
                     <tr>
@@ -67,12 +67,29 @@
                         <th class="text-center" scope="col">Cancelar</th>
                     </tr>
                 </thead>
-                <tbody id="tablaReserva">
+                <tbody id="tablaReservaPendiente">
                 </tbody>
             </table>
-
-
-            <button type="button" id="cancelar" class="btn btn-primary col-sm-3">Cancelar Reservas</button>
+        </div>
+        <div class="container heroSection__titulo">
+            <div>
+                <h2 class="mt-5">Mis Reservas Confirmadas</h2>
+                <p>Gracias por reservar con nosotros, los esperamos en el horario pactado!</p>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">Tipo de cancha</th>
+                        <th class="text-center" scope="col">Dia</th>
+                        <th class="text-center" scope="col">Horario</th>
+                        <th class="text-center" scope="col">Precio</th>
+                        <th class="text-center" scope="col">Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaReservaConfirmada">
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
