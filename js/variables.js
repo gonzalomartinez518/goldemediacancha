@@ -21,10 +21,9 @@ const tablaReservasPendientes = document.querySelector("#tablaReservaPendiente")
 
 const tablaReservasConfirmadas = document.querySelector("#tablaReservaConfirmada")
 
-let carritoCheckout = localStorage.getItem('carritoCheckout') ? JSON.parse(localStorage.getItem('carritoCheckout')) : [];
-
 const reservaConfirmada = localStorage.getItem('ReservaConfirmada') ? JSON.parse(localStorage.getItem('ReservaConfirmada')) : [];
 
+let carritoCheckout = localStorage.getItem('carritoCheckout') ? JSON.parse(localStorage.getItem('carritoCheckout')) : [];
 
 
 

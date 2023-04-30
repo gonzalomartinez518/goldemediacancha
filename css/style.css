@@ -18,10 +18,6 @@ li {
 
 body {
     font-weight: 500;
-}
-
-
-.heroSection {
     height: 100%;
     width: 100%;
     background-image: url(../img/cancha-futbol-t.png);
@@ -53,13 +49,16 @@ body {
     margin-right: 30px;
 }
 
-.card {
-    max-width: 500px;
-    margin: auto;
-    color: black;
-    border-radius: 20 px;
+.footer {
+    background-color: black;
 }
 
-p {
-    margin: 0px;
+.bg-body-tertiary {
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        width: 60%;
+    }
 }
