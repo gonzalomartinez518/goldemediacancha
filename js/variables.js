@@ -1,8 +1,10 @@
+dayjs.locale('es');
+
 const canchas = []
 
 const URL = 'js/canchas.json'
 
-const dias = ['hoy', 'mañana', 'pasado mañana']
+// const dias = ['hoy', 'mañana', 'pasado mañana']
 
 const horarios = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
 
@@ -24,10 +26,8 @@ let reservaConfirmada = localStorage.getItem('ReservaConfirmada') ? JSON.parse(l
 
 let carritoCheckout = localStorage.getItem('carritoCheckout') ? JSON.parse(localStorage.getItem('carritoCheckout')) : [];
 
+const now = dayjs().format("YYYY-MM-DD")
 
+const eleccionDia = document.querySelector("#eleccionDia")
 
-
-
-
-
-
+let diaSeleccionado = []

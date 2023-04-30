@@ -75,7 +75,7 @@ localStorage.setItem('ReservaConfirmada', JSON.stringify(arrayUnificado));
 const precioFinal = document.querySelector('#precioFinal');
 precioFinal.innerHTML = `<fieldset disabled>
                         <div class="mb-3 col-md-6">
-                            <input type="text" id="precioFinal" class="form-control" value="Total a pagar: ${carritoCheckout[0].precio}">
+                            <input type="text" id="precioFinal" class="form-control" value="Total a pagar: $${carritoCheckout[0].precio}">
                         </div>`;
 
 

@@ -25,18 +25,28 @@ function crearOpciones(select, array) {
         })
     }
 }
-crearOpciones(selectDia, dias)
 crearOpciones(selectHorario, horarios)
 
+eleccionDia.min = now
+
+eleccionDia.addEventListener("change", () => {
+    diaSeleccionado = []
+    const fechaSeleccionada = dayjs(eleccionDia.value).format("dddd D [de] MMMM");
+    diaSeleccionado.push(fechaSeleccionada)
+
+});
+
 function validarDatosCompletados() {
-    return (selectCancha.value !== "Cancha" && selectDia.value !== "Día" && selectHorario.value !== "Horario")
+    return (selectCancha.value !== "Cancha" && selectHorario.value !== "Horario")
 }
+
+botonBuscar.addEventListener("click", reservarCancha)
 
 function reservarCancha() {
     if (validarDatosCompletados() === true) {
         const canchaSeleccionada = canchas.find(cancha => cancha.tipo === selectCancha.value);
         const precioCancha = canchaSeleccionada.precio;
-        const nuevaReserva = new Reserva(generarId(), selectCancha.value, precioCancha, selectDia.value, selectHorario.value);
+        const nuevaReserva = new Reserva(generarId(), selectCancha.value, precioCancha, diaSeleccionado, selectHorario.value);
         nuevaReserva.procesarReserva();
         cargarCarrito(carrito)
     } else {
@@ -62,7 +72,7 @@ function crearCarrito(carrito) {
                 <td class="text-center" >${carrito.tipo}</td>
                 <td class="text-center" >${carrito.dia}</td>
                 <td class="text-center" >${carrito.horario}</td>
-                <td class="text-center" >${carrito.precio}</td>
+                <td class="text-center" >$${carrito.precio}</td>
                 <td class="text-center" ><button id="${carrito.id}" type="button" class="confirmar btn btn-success">Confirmar</button></td>
                 <td class="text-center" ><button type="button" class="cancelar btn btn-danger">Cancelar</button></td>
             </tr>`
@@ -80,8 +90,6 @@ function cargarCarrito(reserva){
 }
 
 cargarCarrito(carrito)
-
-botonBuscar.addEventListener("click", reservarCancha)
 
 function activarBotonesCancelar() {
     const botonCancelar = document.querySelectorAll(".cancelar");
@@ -150,7 +158,7 @@ function crearReservasConfirmadas(reservaConfirmada) {
                 <td class="text-center" >${reservaConfirmada.tipo}</td>
                 <td class="text-center" >${reservaConfirmada.dia}</td>
                 <td class="text-center" >${reservaConfirmada.horario}</td>
-                <td class="text-center" >${reservaConfirmada.precio}</td>
+                <td class="text-center" >$${reservaConfirmada.precio}</td>
                 <td class="text-center" ><b>Confirmado</b></td>
             </tr>`
 }

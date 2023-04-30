@@ -15,7 +15,7 @@ class Reserva {
             buttonsStyling: false
         })
         swalWithBootstrapButtons.fire({
-            text: `La cancha de ${this.cancha} está disponible, el precio de la reserva es de ${this.precio}. ¿Desea completar su reserva para ${this.dia} a las ${this.horario} horas?`,
+            text: `La cancha de ${this.cancha} está disponible, el precio de la reserva es de $${this.precio}. ¿Desea completar su reserva para ${this.dia} a las ${this.horario} horas?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Si completar',

@@ -1,4 +1,4 @@
-[{"tipo": "futbol 5", "precio": "$6000"},
-{"tipo": "futbol 7", "precio": "$8400"},
-{"tipo": "futbol 9", "precio": "$10800"},
-{"tipo": "futbol 11", "precio": "$13200"}]
+[{"tipo": "futbol 5", "precio": 6000},
+{"tipo": "futbol 7", "precio": 8400},
+{"tipo": "futbol 9", "precio": 10800},
+{"tipo": "futbol 11", "precio": 13200}]
